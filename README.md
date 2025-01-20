@@ -110,10 +110,10 @@ Si deseas contribuir al proyecto:
 Este proyecto está bajo la Licencia MIT.
 
 ## Autor
-[Tu Nombre]
+Alex Velasquez
 
 ## Contacto
-- Email: [tu@email.com]
-- GitHub: [tu-usuario]
+- Email: velasquez.toledo2701@gmail.com
+- GitHub: alex-v08 
 
 ¿Te gustaría que agregue alguna sección adicional o que profundice en algún aspecto específico del README?
