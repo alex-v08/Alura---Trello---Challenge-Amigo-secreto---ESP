@@ -58,37 +58,15 @@ function actualizarListaAmigos() {
         nameSpan.textContent = listFriends[i];
         nameSpan.style.marginLeft = "30px";
 
-        // Crear botón de eliminar
-        const deleteButton = document.createElement("button");
-        deleteButton.textContent = "×";
-        deleteButton.className = "button-delete";
-        deleteButton.style.padding = "5px 15px";
-        deleteButton.style.backgroundColor = "var(--color-button)";
-        deleteButton.style.color = "var(--color-white)";
-        deleteButton.style.marginRight = "20px";
-        deleteButton.onclick = () => eliminarAmigo(i);
+       
 
         container.appendChild(nameSpan);
-        container.appendChild(deleteButton);
         li.appendChild(container);
         lista.appendChild(li);
     }
 }
 
-// Función para eliminar un amigo de la lista
-function eliminarAmigo(index) {
-    listFriends.splice(index, 1);
-    actualizarListaAmigos();
-}
 
-// Función para mezclar el array (algoritmo Fisher-Yates)
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
 
 // Función para sortear amigos secretos
 function sortearAmigo() {
@@ -98,20 +76,25 @@ function sortearAmigo() {
         return;
     }
 
-    // Crear una copia del array de amigos y mezclarla
-    const shuffled = [...listFriends];
-    shuffleArray(shuffled);
-
+  
     // Crear las parejas de amigos secretos
     const resultado = document.getElementById("resultado");
     resultado.innerHTML = "";
 
-    for(let i = 0; i < listFriends.length; i++) {
-        const secretFriend = shuffled[(i + 1) % shuffled.length];
-        const li = document.createElement("li");
-        li.textContent = `${listFriends[i]} → ${secretFriend}`;
-        resultado.appendChild(li);
-    }
+    // Calcular numero aleatoreio de lenght del array
+    const aleatorio = Math.floor(Math.random() * listFriends.length);
+    const amigo1 = listFriends[aleatorio];
+
+    //mostrar resultado
+
+    const resultadoSpan = document.createElement("span");
+    resultadoSpan.textContent = `Tu amigo secreto es: ${amigo1}`;
+    resultadoSpan.style.fontSize = "24px";
+    resultadoSpan.style.fontWeight = "bold";
+    resultadoSpan.style.marginBottom = "20px";
+    resultado.appendChild(resultadoSpan);
+
+    
 }
 
 // Agregar evento de tecla Enter en el input
